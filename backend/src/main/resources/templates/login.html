@@ -5,6 +5,16 @@
     <title>Title</title>
 </head>
 <body>
-
+<form th:action="@{/login}" th:object="${user}" method="post">
+    <label>
+        <p>Email</p>
+        <input name="email" type="text">
+    </label>
+    <label>
+        <p>Password</p>
+        <input name="password" type="password">
+    </label>
+    <button type="submit">Login</button>
+</form>
 </body>
 </html>
