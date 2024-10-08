@@ -4,17 +4,25 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-<form th:action="@{/login}" th:object="${user}" method="post">
-    <label>
-        <p>Email</p>
-        <input name="email" type="text">
-    </label>
-    <label>
-        <p>Password</p>
-        <input name="password" type="password">
-    </label>
-    <button type="submit">Login</button>
-</form>
-</body>
+    <body>
+        <form th:action="@{/login}" th:object="${user}" method="post">
+            <h2>Log-In phase</h2>
+            <p>Please enter your data in the following fields.</p>
+            <p>Email:
+                <label>
+                    <p th:text="${errorEmail}"></p>
+                    <input type="text" th:field="${user.email}" />
+                </label>
+            </p>
+            <p>Password:
+                <label>
+                    <p th:text="${errorPassword}"></p>
+                    <input type="text" th:field="${user.password}"/>
+                </label>
+            </p>
+
+            <!-- il type="submit" ha una proprietà interna che quando viene cliccato esegue l'action indicato nel tag FORM -->
+            <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+        </form>
+    </body>
 </html>
